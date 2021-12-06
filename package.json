@@ -1,0 +1,37 @@
+{
+  "author": {
+    "email": "albertowd+git@albertowd.dev",
+    "name": "Alberto Wollmann Dietrich",
+    "url": "https://albertowd.dev"
+  },
+  "bin": "src/index.js",
+  "dependencies": {
+    "csv-parse": "^5.0.3"
+  },
+  "description": "A tool to convert Race Chrono CSV file into ChassisSim Monster file.",
+  "devDependencies": {
+    "eslint": "^8.4.0",
+    "eslint-config-google": "^0.14.0",
+    "pkg": "^5.5.1"
+  },
+  "license": "GPL-3.0",
+  "main": "src/index.js",
+  "name": "csim-converter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albertowd/csim-converter"
+  },
+  "scripts": {
+    "build": "npm run build:linux && npm run build:mac && npm run build:win",
+    "build:linux": "pkg -C GZip -o dist/linux/csim-converter -t node16-linux-x64 .",
+    "build:mac": "pkg -C GZip -o dist/mac/csim-converter -t node16-mac-x64 .",
+    "build:win": "pkg -C GZip -o dist/win/csim-converter -t node16-win-x64 .",
+    "dev": "node src/index.js \"./data/session_guaporé_20211115_1641_1_v1.csv\"",
+    "dev:usage": "node src/index.js",
+    "lint:init": "eslint --init",
+    "lint": "eslint src/**/*.js",
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.1"
+}
